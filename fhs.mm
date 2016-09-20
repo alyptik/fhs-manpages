@@ -567,7 +567,7 @@ location other than \f(CW/etc/opt/<package>\fP.
 Refer to the rationale for \f(CW/opt\fP.
 .EndRationale
 .\" -------------------------------------------------------------------
-.SH "/10000000000etc/X11 : Configuration for the X Window System (optional)"
+.SH "/etc/X11 : Configuration for the X Window System (optional)"
 .LI
 .LE
 .P

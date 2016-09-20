@@ -11,7 +11,7 @@ depends=('gzip')
 url="http://github.com/alyptik/fhs-manpages"
 license=('GPL')
 source=("https://github.com/alyptik/${pkgname}/raw/master/fhs.mm")
-sha256sums=('78151512ca871eea57bd76daddf6768ec2fa6a847f33b6333f6411a1dd1074a3')
+sha256sums=('833f5950d4e3698bdf5fa71d192d09457a3594d5b2b0b9b626622e7087f4bd7f')
 build() {
 	cat "$srcdir/fhs.mm" | gzip > "$srcdir/fhs.5.gz"
 }
