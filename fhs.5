@@ -20,7 +20,7 @@ Filesystem Hierarchy Standard \(em Version 2.2 final
 .nh
 .P 1
 This standard consists of a set of requirements and guidelines for file
-and directory placement under \*(Ux-like operating systems.  The
+and directory placement under Unix-like operating systems.  The
 guidelines are intended to support interoperability of applications,
 system administration tools, development tools, and scripts as well as
 greater uniformity of documentation for these systems.
@@ -108,8 +108,8 @@ Variable substrings of directory names and filenames are indicated by
 .SS "The Filesystem"
 .P
 This standard assumes that the operating system underlying an
-\*(Fs-compliant file system supports the same basic security features
-found in most \*(Ux filesystems.
+FHS-compliant file system supports the same basic security features
+found in most Unix filesystems.
 .P
 It is possible to define two independent categories of files: shareable
 vs. unshareable and variable vs. static.  There should be a simple and
@@ -140,7 +140,7 @@ In a networked environment, certain files contain information specific
 to a single host.  Therefore these filesystems cannot be shared
 (without taking special measures).
 .LI
-Historical implementations of \*(Ux-like filesystems interspersed
+Historical implementations of Unix-like filesystems interspersed
 shareable and unshareable data in the same hierarchy, making it
 difficult to share large portions of the filesystem.
 .LE
@@ -155,7 +155,7 @@ A \f(CW/usr\fP partition (or components of \f(CW/usr\fP) mounted from
 read-only media.  A CD-ROM is one copy of many identical ones
 distributed to other users by the postal mail system and other methods.
 It can thus be regarded as a read-only filesystem shared with other
-\*(Fs-compliant systems by some kind of "network".
+FHS-compliant systems by some kind of "network".
 .LE
 .P
 The "static" versus "variable" distinction affects the filesystem in two
@@ -174,12 +174,12 @@ the \f(CW/usr\fP partition's traditional functionality.
 .LE
 .P
 Here is a summarizing chart.  This chart is only an example for a common
-\*(Fs-compliant system, other chart layouts are possible within
-\*(Fs-compliance.
+FHS-compliant system, other chart layouts are possible within
+FHS-compliance.
 .\" XXX - this was:
 .\" Here is a summarizing chart.  Since this chart contains generalized
 .\" examples, it may not apply to every possible implementation of
-.\" an \*(Fs-compliant system.
+.\" an FHS-compliant system.
 .TS
 box,center;
 l | l | 1.
@@ -253,7 +253,7 @@ less prone to corruption as the result of a system crash.
 .LE
 .P
 Software must never create or require special files or subdirectories
-in the root directory.  Other locations in the \*(Fs hierarchy provide
+in the root directory.  Other locations in the FHS hierarchy provide
 more than enough flexibility for any package.
 .P
 There are several reasons why introducing a new subdirectory of the root
@@ -627,7 +627,7 @@ site-specific filesystem.\*F
 .FS
 Different people prefer to place user accounts in a variety of places.
 This section describes only a suggested placement for user home
-directories; nevertheless we recommend that all \*(Fs-compliant
+directories; nevertheless we recommend that all FHS-compliant
 distributions use this as the default location for home directories.
 .P
 On small systems, each user's directory is typically one of the many
@@ -764,7 +764,7 @@ administrator, but must function normally in the absence of these
 reserved directories.
 .P
 Programs to be invoked by users must be located in the directory
-\f(CW/opt/<package>/bin\fP. If the package includes \*(Ux manual pages,
+\f(CW/opt/<package>/bin\fP. If the package includes Unix manual pages,
 they must be located in \f(CW/opt/<package>/man\fP and the same
 substructure as \f(CW/usr/share/man\fP must be used.
 .P
@@ -788,7 +788,7 @@ without the assent of the local system administrator.
 .\" -------------------------------------------------------------------
 .StartRationale
 The use of \f(CW/opt\fP for add-on software is a well-established
-practice in the \*(Ux community.  The System V Application Binary
+practice in the Unix community.  The System V Application Binary
 Interface [AT&T 1990], based on the System V Interface Definition (Third
 Edition), provides for an \f(CW/opt\fP structure very similar to the one
 defined here.
@@ -921,7 +921,7 @@ Although data stored in \f(CW/tmp\fP may be deleted in a site-specific
 manner, it is recommended that files and directories located in
 \f(CW/tmp\fP be deleted whenever the system is booted.
 .P
-\*(Fs added this recommendation
+FHS added this recommendation
 on the basis of historical precedent and common practice, but did not
 make it a requirement because system administration is not within the
 scope of this standard.
@@ -932,7 +932,7 @@ scope of this standard.
 .SS "Purpose"
 \f(CW/usr\fP is the second major section of the filesystem.
 \f(CW/usr\fP is shareable, read-only data.  That means that \f(CW/usr\fP
-should be shareable between various \*(Fs-compliant hosts and
+should be shareable between various FHS-compliant hosts and
 must not be written to.  Any information that is host-specific or
 varies with time is stored elsewhere.
 .P
@@ -1179,7 +1179,7 @@ sub("src","Local source code")
 .PE
 .P
 No other directories, except those listed below, may be in
-\f(CW/usr/local\fP after first installing a \*(Fs-compliant system.
+\f(CW/usr/local\fP after first installing a FHS-compliant system.
 .SS "Specific Options"
 If directories \f(CW/lib<qual>\fP or \f(CW/usr/lib<qual>\fP exist, the
 equivalent directories must also exist in \f(CW/usr/local\fP.
@@ -1611,7 +1611,7 @@ likely to create a naming conflict.  Instead, link \f(CW/var\fP to
 .P
 Applications must generally not add directories to the top level of
 \f(CW/var\fP.  Such directories should only be added if they have some
-system-wide implication, and in consultation with the \*(Fs mailing list.
+system-wide implication, and in consultation with the FHS mailing list.
 .SS "Requirements"
 The following directories, or symbolic links to directories, are required in \f(CW/var\fP.
 .PS
@@ -1661,7 +1661,7 @@ sub("yp","Network Information Service (NIS) database files (optional)")
 .P
 .SS "Purpose"
 This directory holds the current active process accounting log and the
-composite process usage data (as used in some \*(Ux-like systems by
+composite process usage data (as used in some Unix-like systems by
 \f(CWlastcomm\fP and \f(CWsa\fP).
 .\" -------------------------------------------------------------------
 .SH "/var/cache : Application cache data"
@@ -1711,8 +1711,8 @@ dynamically-created fonts.  In particular, all of the fonts which are
 automatically generated by \f(CWmktexpk\fP must be located in
 appropriately-named subdirectories of \f(CW/var/cache/fonts\fP.\*F
 .FS
-This standard does not currently incorporate the \*(Tx Directory
-Structure (a document that describes the layout \*(Tx files and
+This standard does not currently incorporate the Directory
+Structure (a document that describes the layout files and
 directories), but it may be useful reading.  It is located at
 \f(CWftp://ctan.tug.org/tex/\fP.
 .FE
@@ -1906,7 +1906,7 @@ are stored under \f(CW/var/lib\fP.
 This directory contains the file \f(CW/var/lib/hwclock/adjtime\fP.
 .\" -------------------------------------------------------------------
 .StartRationale
-In \*(Fs 2.1, this file was \f(CW/etc/adjtime\fP, but as \f(CWhwclock\fP
+In FHS 2.1, this file was \f(CW/etc/adjtime\fP, but as \f(CWhwclock\fP
 updates it, that was obviously incorrect.
 .EndRationale
 .\" -------------------------------------------------------------------
@@ -1994,14 +1994,14 @@ may be a symbolic link to another directory.
 .FE
 .P
 User mailbox files in this location must be stored in the standard
-\*(Ux mailbox format.
+Unix mailbox format.
 .\" -------------------------------------------------------------------
 .StartRationale
 The logical location for this directory was changed from
-\f(CW/var/spool/mail\fP in order to bring \*(Fs in-line with nearly
-every \*(Ux implementation.  This change is important for
+\f(CW/var/spool/mail\fP in order to bring FHS in-line with nearly
+every Unix implementation.  This change is important for
 inter-operability since a single \f(CW/var/mail\fP is often shared
-between multiple hosts and multiple \*(Ux implementations (despite NFS
+between multiple hosts and multiple Unix implementations (despite NFS
 locking issues).
 .P
 It is important to note that there is no requirement to physically move
@@ -2064,7 +2064,7 @@ located in the above paragraph.
 The \f(CWutmp\fP file, which stores information about who is currently
 using the system, is located in this directory.
 .P
-Programs that maintain transient \*(Ux-domain sockets must place them
+Programs that maintain transient Unix-domain sockets must place them
 in this directory.
 .\" -------------------------------------------------------------------
 .SH "/var/spool : Application spool data"
@@ -2408,9 +2408,9 @@ This directory contains the variable data for the \f(CWcron\fP and
 .LI
 .LE
 .P
-.SS "The \*(Fs mailing list"
+.SS "The FHS mailing list"
 .P
-The \*(Fs mailing list is located at <fhs-discuss@ucsd.edu>.  To
+The FHS mailing list is located at <fhs-discuss@ucsd.edu>.  To
 subscribe to the list send mail to <listserv@ucsd.edu> with body
 "\f(CWADD fhs-discuss\fP".
 .P
@@ -2418,9 +2418,9 @@ Thanks to Network Operations at the University of California at San
 Diego who allowed us to use their excellent mailing list server.
 .P
 As noted in the introduction, please do not send mail to the mailing
-list without first contacting the \*(Fs editor or a listed contributor.
+list without first contacting the FHS editor or a listed contributor.
 .\" -------------------------------------------------------------------
-.SS "Background of the \*(Fs"
+.SS "Background of the FHS"
 .P
 The process of developing a standard filesystem hierarchy began in
 August 1993 with an effort to restructure the file and directory
@@ -2430,12 +2430,12 @@ specific to the Linux operating system, was released on February 14,
 28, 1995.
 .P
 In early 1995, the goal of developing a more comprehensive version of
-FSSTND to address not only Linux, but other \*(Ux-like systems was
+FSSTND to address not only Linux, but other Unix-like systems was
 adopted with the help of members of the BSD development community.
 As a result, a concerted effort was made to focus on issues that were
-general to \*(Ux-like systems.  In recognition of this widening of
+general to Unix-like systems.  In recognition of this widening of
 scope, the name of the standard was changed to Filesystem Hierarchy
-Standard or \*(Fs for short.
+Standard or FHS for short.
 .P
 Volunteers who have contributed extensively to this standard are listed
 at the end of this document.  This standard represents a consensus view
@@ -2455,23 +2455,23 @@ Gain the approval of distributors, developers, and other decision-makers
 in relevant development groups and encourage their participation.
 .LI
 Provide a standard that is attractive to the implementors of different
-\*(Ux-like systems.
+Unix-like systems.
 .LE
 .\" -------------------------------------------------------------------
 .\" -------------------------------------------------------------------
 .SS "Scope"
 .P
-This document specifies a standard filesystem hierarchy for \*(Fs
+This document specifies a standard filesystem hierarchy for FHS
 filesystems by specifying the location of files and directories, and the
 contents of some system files.
 .P
 This standard has been designed to be used by system integrators,
 package developers, and system administrators in the construction and
-maintenance of \*(Fs compliant filesystems.  It is primarily intended to
+maintenance of FHS compliant filesystems.  It is primarily intended to
 be a reference and is not a tutorial on how to manage a conforming
 filesystem hierarchy.
 .P
-The \*(Fs grew out of earlier work on FSSTND, a filesystem organization
+The FHS grew out of earlier work on FSSTND, a filesystem organization
 standard for the Linux operating system.  It builds on FSSTND to address
 interoperability issues not just in the Linux community but in a wider
 arena including 4.4BSD-based operating systems.  It incorporates lessons
@@ -2704,8 +2704,8 @@ Variable substrings of directory names and filenames are indicated by
 .SS "The Filesystem"
 .P
 This standard assumes that the operating system underlying an
-\*(Fs-compliant file system supports the same basic security features
-found in most \*(Ux filesystems.
+FHS-compliant file system supports the same basic security features
+found in most Unix filesystems.
 .P
 It is possible to define two independent categories of files: shareable
 vs. unshareable and variable vs. static.  There should be a simple and
@@ -2736,7 +2736,7 @@ In a networked environment, certain files contain information specific
 to a single host.  Therefore these filesystems cannot be shared
 (without taking special measures).
 .LI
-Historical implementations of \*(Ux-like filesystems interspersed
+Historical implementations of Unix-like filesystems interspersed
 shareable and unshareable data in the same hierarchy, making it
 difficult to share large portions of the filesystem.
 .LE
@@ -2751,7 +2751,7 @@ A \f(CW/usr\fP partition (or components of \f(CW/usr\fP) mounted from
 read-only media.  A CD-ROM is one copy of many identical ones
 distributed to other users by the postal mail system and other methods.
 It can thus be regarded as a read-only filesystem shared with other
-\*(Fs-compliant systems by some kind of "network".
+FHS-compliant systems by some kind of "network".
 .LE
 .P
 The "static" versus "variable" distinction affects the filesystem in two
@@ -2770,12 +2770,12 @@ the \f(CW/usr\fP partition's traditional functionality.
 .LE
 .P
 Here is a summarizing chart.  This chart is only an example for a common
-\*(Fs-compliant system, other chart layouts are possible within
-\*(Fs-compliance.
+FHS-compliant system, other chart layouts are possible within
+FHS-compliance.
 .\" XXX - this was:
 .\" Here is a summarizing chart.  Since this chart contains generalized
 .\" examples, it may not apply to every possible implementation of
-.\" an \*(Fs-compliant system.
+.\" an FHS-compliant system.
 .TS
 box,center;
 l | l | l.
@@ -2844,7 +2844,7 @@ less prone to corruption as the result of a system crash.
 .LE
 .P
 Software must never create or require special files or subdirectories
-in the root directory.  Other locations in the \*(Fs hierarchy provide
+in the root directory.  Other locations in the FHS hierarchy provide
 more than enough flexibility for any package.
 .P
 There are several reasons why introducing a new subdirectory of the root
@@ -3216,7 +3216,7 @@ site-specific filesystem.\*F
 .FS
 Different people prefer to place user accounts in a variety of places.
 This section describes only a suggested placement for user home
-directories; nevertheless we recommend that all \*(Fs-compliant
+directories; nevertheless we recommend that all FHS-compliant
 distributions use this as the default location for home directories.
 .P
 On small systems, each user's directory is typically one of the many
@@ -3353,7 +3353,7 @@ administrator, but must function normally in the absence of these
 reserved directories.
 .P
 Programs to be invoked by users must be located in the directory
-\f(CW/opt/<package>/bin\fP. If the package includes \*(Ux manual pages,
+\f(CW/opt/<package>/bin\fP. If the package includes Unix manual pages,
 they must be located in \f(CW/opt/<package>/man\fP and the same
 substructure as \f(CW/usr/share/man\fP must be used.
 .P
@@ -3377,7 +3377,7 @@ without the assent of the local system administrator.
 .\" -------------------------------------------------------------------
 .StartRationale
 The use of \f(CW/opt\fP for add-on software is a well-established
-practice in the \*(Ux community.  The System V Application Binary
+practice in the Unix community.  The System V Application Binary
 Interface [AT&T 1990], based on the System V Interface Definition (Third
 Edition), provides for an \f(CW/opt\fP structure very similar to the one
 defined here.
@@ -3510,7 +3510,7 @@ Although data stored in \f(CW/tmp\fP may be deleted in a site-specific
 manner, it is recommended that files and directories located in
 \f(CW/tmp\fP be deleted whenever the system is booted.
 .P
-\*(Fs added this recommendation
+FHS added this recommendation
 on the basis of historical precedent and common practice, but did not
 make it a requirement because system administration is not within the
 scope of this standard.
@@ -3521,7 +3521,7 @@ scope of this standard.
 .SS "Purpose"
 \f(CW/usr\fP is the second major section of the filesystem.
 \f(CW/usr\fP is shareable, read-only data.  That means that \f(CW/usr\fP
-should be shareable between various \*(Fs-compliant hosts and
+should be shareable between various FHS-compliant hosts and
 must not be written to.  Any information that is host-specific or
 varies with time is stored elsewhere.
 .P
@@ -3768,7 +3768,7 @@ sub("src","Local source code")
 .PE
 .P
 No other directories, except those listed below, may be in
-\f(CW/usr/local\fP after first installing a \*(Fs-compliant system.
+\f(CW/usr/local\fP after first installing a FHS-compliant system.
 .SS "Specific Options"
 If directories \f(CW/lib<qual>\fP or \f(CW/usr/lib<qual>\fP exist, the
 equivalent directories must also exist in \f(CW/usr/local\fP.
@@ -4200,7 +4200,7 @@ likely to create a naming conflict.  Instead, link \f(CW/var\fP to
 .P
 Applications must generally not add directories to the top level of
 \f(CW/var\fP.  Such directories should only be added if they have some
-system-wide implication, and in consultation with the \*(Fs mailing list.
+system-wide implication, and in consultation with the FHS mailing list.
 .SS "Requirements"
 The following directories, or symbolic links to directories, are required in \f(CW/var\fP.
 .PS
@@ -4250,7 +4250,7 @@ sub("yp","Network Information Service (NIS) database files (optional)")
 .P
 .SS "Purpose"
 This directory holds the current active process accounting log and the
-composite process usage data (as used in some \*(Ux-like systems by
+composite process usage data (as used in some Unix-like systems by
 \f(CWlastcomm\fP and \f(CWsa\fP).
 .\" -------------------------------------------------------------------
 .SH "/var/cache : Application cache data"
@@ -4300,8 +4300,8 @@ dynamically-created fonts.  In particular, all of the fonts which are
 automatically generated by \f(CWmktexpk\fP must be located in
 appropriately-named subdirectories of \f(CW/var/cache/fonts\fP.\*F
 .FS
-This standard does not currently incorporate the \*(Tx Directory
-Structure (a document that describes the layout \*(Tx files and
+This standard does not currently incorporate the Directory
+Structure (a document that describes the layout files and
 directories), but it may be useful reading.  It is located at
 \f(CWftp://ctan.tug.org/tex/\fP.
 .FE
@@ -4495,7 +4495,7 @@ are stored under \f(CW/var/lib\fP.
 This directory contains the file \f(CW/var/lib/hwclock/adjtime\fP.
 .\" -------------------------------------------------------------------
 .StartRationale
-In \*(Fs 2.1, this file was \f(CW/etc/adjtime\fP, but as \f(CWhwclock\fP
+In FHS 2.1, this file was \f(CW/etc/adjtime\fP, but as \f(CWhwclock\fP
 updates it, that was obviously incorrect.
 .EndRationale
 .\" -------------------------------------------------------------------
@@ -4583,14 +4583,14 @@ may be a symbolic link to another directory.
 .FE
 .P
 User mailbox files in this location must be stored in the standard
-\*(Ux mailbox format.
+Unix mailbox format.
 .\" -------------------------------------------------------------------
 .StartRationale
 The logical location for this directory was changed from
-\f(CW/var/spool/mail\fP in order to bring \*(Fs in-line with nearly
-every \*(Ux implementation.  This change is important for
+\f(CW/var/spool/mail\fP in order to bring FHS in-line with nearly
+every Unix implementation.  This change is important for
 inter-operability since a single \f(CW/var/mail\fP is often shared
-between multiple hosts and multiple \*(Ux implementations (despite NFS
+between multiple hosts and multiple Unix implementations (despite NFS
 locking issues).
 .P
 It is important to note that there is no requirement to physically move
@@ -4653,7 +4653,7 @@ located in the above paragraph.
 The \f(CWutmp\fP file, which stores information about who is currently
 using the system, is located in this directory.
 .P
-Programs that maintain transient \*(Ux-domain sockets must place them
+Programs that maintain transient Unix-domain sockets must place them
 in this directory.
 .\" -------------------------------------------------------------------
 .SH "/var/spool : Application spool data"
@@ -4997,9 +4997,9 @@ This directory contains the variable data for the \f(CWcron\fP and
 .LI
 .LE
 .P
-.SS "The \*(Fs mailing list"
+.SS "The FHS mailing list"
 .P
-The \*(Fs mailing list is located at <fhs-discuss@ucsd.edu>.  To
+The FHS mailing list is located at <fhs-discuss@ucsd.edu>.  To
 subscribe to the list send mail to <listserv@ucsd.edu> with body
 "\f(CWADD fhs-discuss\fP".
 .P
@@ -5007,9 +5007,9 @@ Thanks to Network Operations at the University of California at San
 Diego who allowed us to use their excellent mailing list server.
 .P
 As noted in the introduction, please do not send mail to the mailing
-list without first contacting the \*(Fs editor or a listed contributor.
+list without first contacting the FHS editor or a listed contributor.
 .\" -------------------------------------------------------------------
-.SS "Background of the \*(Fs"
+.SS "Background of the FHS"
 .P
 The process of developing a standard filesystem hierarchy began in
 August 1993 with an effort to restructure the file and directory
@@ -5019,12 +5019,12 @@ specific to the Linux operating system, was released on February 14,
 28, 1995.
 .P
 In early 1995, the goal of developing a more comprehensive version of
-FSSTND to address not only Linux, but other \*(Ux-like systems was
+FSSTND to address not only Linux, but other Unix-like systems was
 adopted with the help of members of the BSD development community.
 As a result, a concerted effort was made to focus on issues that were
-general to \*(Ux-like systems.  In recognition of this widening of
+general to Unix-like systems.  In recognition of this widening of
 scope, the name of the standard was changed to Filesystem Hierarchy
-Standard or \*(Fs for short.
+Standard or FHS for short.
 .P
 Volunteers who have contributed extensively to this standard are listed
 at the end of this document.  This standard represents a consensus view
@@ -5044,23 +5044,23 @@ Gain the approval of distributors, developers, and other decision-makers
 in relevant development groups and encourage their participation.
 .LI
 Provide a standard that is attractive to the implementors of different
-\*(Ux-like systems.
+Unix-like systems.
 .LE
 .\" -------------------------------------------------------------------
 .\" -------------------------------------------------------------------
 .SS "Scope"
 .P
-This document specifies a standard filesystem hierarchy for \*(Fs
+This document specifies a standard filesystem hierarchy for FHS
 filesystems by specifying the location of files and directories, and the
 contents of some system files.
 .P
 This standard has been designed to be used by system integrators,
 package developers, and system administrators in the construction and
-maintenance of \*(Fs compliant filesystems.  It is primarily intended to
+maintenance of FHS compliant filesystems.  It is primarily intended to
 be a reference and is not a tutorial on how to manage a conforming
 filesystem hierarchy.
 .P
-The \*(Fs grew out of earlier work on FSSTND, a filesystem organization
+The FHS grew out of earlier work on FSSTND, a filesystem organization
 standard for the Linux operating system.  It builds on FSSTND to address
 interoperability issues not just in the Linux community but in a wider
 arena including 4.4BSD-based operating systems.  It incorporates lessons
@@ -5077,20 +5077,20 @@ periodic updates to this document.  However, a specific goal is
 backwards compatibility from one release of this document to the next.
 .P
 Comments related to this standard are welcome.  Any comments or
-suggestions for changes may be directed to the \*(Fs editor (Daniel
-Quinlan <quinlan@pathname.com>) or the \*(Fs mailing
+suggestions for changes may be directed to the FHS editor (Daniel
+Quinlan <quinlan@pathname.com>) or the FHS mailing
 list.  Typographical or grammatical comments should be directed to the
-\*(Fs editor.
+FHS editor.
 .\" In translations, the last sentence should be replaced by something like:
 .\" Typographical or grammatical comments should be directed to the
-.\" translator or to the \*(Fs editor.
+.\" translator or to the FHS editor.
 .P
 Before sending mail to the mailing list it is requested that you first
-contact the \*(Fs editor in order to avoid excessive re-discussion of old
+contact the FHS editor in order to avoid excessive re-discussion of old
 topics.
 .P
 Questions about how to interpret items in this document may occasionally
-arise.  If you have need for a clarification, please contact the \*(Fs
+arise.  If you have need for a clarification, please contact the FHS
 editor.  Since this standard represents a consensus of many
 participants, it is important to make certain that any interpretation
 also represents their collec
@@ -5104,14 +5104,14 @@ the subject of previous discussion.
 .\" -------------------------------------------------------------------
 .SS "Acknowledgments"
 .P
-The developers of the \*(Fs wish to thank the developers, system
+The developers of the FHS wish to thank the developers, system
 administrators, and users whose input was essential to this standard.
 We wish to thank each of the contributors who helped to write, compile,
 and compose this standard.
 .P
-The \*(Fs Group also wishes to thank those Linux developers who
+The FHS Group also wishes to thank those Linux developers who
 supported the FSSTND, the predecessor to this standard.  If they hadn't
-demonstrated that the FSSTND was beneficial, the \*(Fs could never have
+demonstrated that the FSSTND was beneficial, the FHS could never have
 evolved.
 .\" -------------------------------------------------------------------
 .SS "Contributors"
@@ -5136,20 +5136,20 @@ Rusty Russell	<rusty@rustcorp.com.au>
 .TE
 .LE
 .P
-Suggestions for changes may be directed to the \*(Fs editor (Daniel
-Quinlan <quinlan@pathname.com>) or the \*(Fs mailing
+Suggestions for changes may be directed to the FHS editor (Daniel
+Quinlan <quinlan@pathname.com>) or the FHS mailing
 list.  Typographical or grammatical comments should be directed to the
-\*(Fs editor.
+FHS editor.
 .\" In translations, the last sentence should be replaced by something like:
 .\" Typographical or grammatical comments should be directed to the
-.\" translator or to the \*(Fs editor.
+.\" translator or to the FHS editor.
 .P
 Before sending mail to the mailing list it is requested that you first
-contact the \*(Fs editor in order to avoid excessive re-discussion of old
+contact the FHS editor in order to avoid excessive re-discussion of old
 topics.
 .P
 Questions about how to interpret items in this document may occasionally
-arise.  If you have need for a clarification, please contact the \*(Fs
+arise.  If you have need for a clarification, please contact the FHS
 editor.  Since this standard represents a consensus of many
 participants, it is important to make certain that any interpretation
 also represents their collective opinion.  For this reason it may not be
